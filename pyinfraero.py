@@ -5,12 +5,12 @@ from BeautifulSoup import BeautifulSoup
 class Airport(object):
 
     def __init__(self, code):
-        if code not in AIRPORTS:
+        if str(code) not in AIRPORTS:
             raise Exception("Invalid Airport Code")
         self.code = code
         self.br = Browser()
         self.br.set_handle_robots(False)
-        
+
     def _get_flights_data(self):
         self.br.open("http://www.infraero.gov.br/voos/index.aspx")
         self.br.select_form(name="form1")
@@ -39,6 +39,9 @@ class Airport(object):
                 flights_list.append(flight_info)
             except: pass
         return flights_list
+
+    def get_info(self):
+        pass
 
     def get_flights(self, airline=""):
         raw_flights_data = self._get_flights_data()
