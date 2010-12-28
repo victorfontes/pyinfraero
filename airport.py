@@ -1,11 +1,16 @@
-AIRPORTS = ("SBHT","SBAR","SBBE","SBBH","SBCF","SBBV","SBBR","SBKG","SBKP","SBCG","SBCP","SBCJ","SBCR","SBCM","SBCZ","SBCY","SBCT","SBFL","SBFZ","SBFI","SBGO","SBIL","SBIZ","SBJP","SBJV","SBJU","SBLO","SBME","SBMQ","SBMO","SBEG","SBMA","SBMK","SBNT","SBNF","SBPJ","SBPK","SBPL","SBPA","SBPV","SBRF","SBRB","SBGL","SBRJ","SBSV","SBSN","SBSL","SBSP","SBGR","SBTE","SBUR","SBUL","SBUG","SBVT")
+#! /usr/bin/python
+# coding: utf-8
+
 from mechanize import Browser
 from BeautifulSoup import BeautifulSoup
+
+from data import AIRPORTS_LIST
+
     
 class Airport(object):
 
     def __init__(self, code):
-        if str(code) not in AIRPORTS:
+        if str(code) not in AIRPORTS_LIST:
             raise Exception("Invalid Airport Code")
         self.code = code
         self.br = Browser()
