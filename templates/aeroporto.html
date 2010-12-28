@@ -1,0 +1,37 @@
+<!doctype html>
+
+<table>
+	<tr>
+		<td>Voo</td>
+		<td>Status</td>								
+
+		<td>Origem</td>
+
+		<td>Agendado</td>		
+		<td>Confirmado</td>				
+
+		<td>Compania</td>						
+		<td>Escalas</td>								
+
+		<td>Data</td>						
+
+	<tr>
+
+	{% for voo in voos %}		
+	<tr>
+		<td>{{ voo.flight }}</td>
+		<td>{{ voo.status }}</td>
+
+		<td>{{ voo.origin }}</td>
+
+		<td>{{ voo.scheduled }}</td>		
+		<td>{{ voo.confirmed }}</td>				
+
+		<td>{{ voo.airline }}</td>						
+		<td>{{ voo.scales }}</td>								
+
+		<td>{{ voo.date }}</td>						
+	<tr>
+	{% endfor %}		
+
+</table>
